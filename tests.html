@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Test Suite</title>
+    <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.11.3.css">
+  </head>
+  <body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script src="https://code.jquery.com/qunit/qunit-2.11.3.js"></script>
+    <script src="./script.js"></script>
+
+    <script>
+        
+
+        QUnit.test("Sjekk lengde - 31.01.20201", function (assert) {
+            let actual = isDateValid("31.01.20201");
+            let expected = false;
+            assert.equal(actual, expected);
+        });
+
+        QUnit.test("sjekk punktum - 310120..20", function (assert) {
+            let actual = isDateValid("310120..20");
+            let expected = false;
+            assert.equal(actual, expected);
+        });
+
+        QUnit.test("Sjekk år - 31.01.20201", function (assert) {
+            let actual = isDateValid("31.01.20201");
+            let expected = false;
+            assert.equal(actual, expected);
+        });
+
+        QUnit.test("Sjekk mndlengde - 31.011.2020", function (assert) {
+            let actual = isDateValid("31.011.2020");
+            let expected = false;
+            assert.equal(actual, expected);
+        });
+
+        QUnit.test("Sjekk mnd > 12 - 31.14.2020", function (assert) {
+            let actual = isDateValid("31.14.2020");
+            let expected = false;
+            assert.equal(actual, expected);
+        });
+
+        QUnit.test("Sjekk dag > 31 - 32.01.2020", function (assert) {
+            let actual = isDateValid("32.01.2020");
+            let expected = false;
+            assert.equal(actual, expected);
+        });
+
+        QUnit.test("Sjekk 31november - 31.11.2020", function (assert) {
+            let actual = isDateValid("31.11.2020");
+            let expected = false;
+            assert.equal(actual, expected);
+        });
+
+        QUnit.test("Sjekk 30februar - 30.02.2020", function (assert) {
+            let actual = isDateValid("30.02.2020");
+            let expected = false;
+            assert.equal(actual, expected);
+        });
+
+        QUnit.test("Sjekk ikkeskuddår - 29.02.2021", function (assert) {
+            let actual = isDateValid("29.02.2021");
+            let expected = false;
+            assert.equal(actual, expected);
+        });
+
+        QUnit.test("Sjekk gydligskuddår - 29.02.2020", function (assert) {
+            let actual = isDateValid("29.02.2020");
+            let expected = true;
+            assert.equal(actual, expected);
+        });
+
+        
+      </script>
+
+
+</body>
+</html>
